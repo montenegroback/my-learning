@@ -1,4 +1,4 @@
-# MY LEARNING!!!
+# MY LEARNING
 
 Es un repositorio público, creado con la finalidad de recopilar diferentes notas de todos los cursos, talleres etc. Todo esto sobre el proceso de aprendizaje en el área de la programación. 
 
