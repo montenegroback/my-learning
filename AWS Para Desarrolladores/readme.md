@@ -34,6 +34,8 @@ Nos permite establecer la configuracion de las contraseña de los usuarios a tra
 
 Nos permite activar MFA verificaciones en dos pasos
 
+---
+
 ## AWS S3
 
 Es el serivicio de almacenamiento simple. (Simple Storage Service).
@@ -71,3 +73,16 @@ Hay 4 métodos de encriptación de objectos de S3.
 2. **SSE-KMS:** Utiliza KMS (Servicio de gestión de claves)
 3. **SSE-C:** El cliente maneja las claves de encriptación
 4. **Encriptción del lado del cliente:** El cliente ya envia los datos encriptados a AWS S3
+
+---
+
+## AWS EC2 - Elastic Computing Cloud
+
+### Modelos de compra
+
+1. **Capa gratuita:** Inclute 750 Horas de instancias t2.micro al mes
+
+2. **Instancia bajo demanda**
+3. **Instancia de spot**
+4. **Instancia reservadas**
+5. **Instancia de host dedicados**
