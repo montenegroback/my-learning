@@ -86,3 +86,92 @@ CMD
 - Construir imagen sin Dockerfile default
 
   > docker build -t **[name:tag]** -f **[file]**
+
+---
+
+## Contenedores
+
+Son instancias de ejecución de una imagen.
+
+### Caracteristicas
+
+- Son temporales
+- La capa de ejecución es RW
+- Se pueden crear multiples contenedores a partir de una misma imagen
+
+### Algunos comandos
+
+- Listar contenedores
+
+  > docker ps
+
+- Listar contenedores incluso terminados
+
+  > docker ps -a
+
+- Renombar contenedor
+
+  > docker rename **[before_name]** **[new_name]**
+
+- Detener un contenedor sin eliminarlo
+
+  > docker stop **[id or name]**
+
+- Iniciar un contenedor existente
+
+  > docker start **[id or name]**
+
+- Reiniciar un contenedor
+
+  > docker restart **[id or name]**
+
+- Entrar a un contenedor
+
+  > docker exec -u root -it **[id or name]** bash | sh
+
+- Eliminar contenedores
+
+  ```
+  > docker rm -f [id or name]
+
+  > docker ps -aq | xargs docker rm -f
+
+  > docker rm -f $(docker ps -aq)
+
+  ```
+
+- Definir variables de entorno
+
+  > docker run -d -e "key=value" **[image_name]**
+
+- Definir nombre al iniciar un contenedor
+
+  > docker run -d --name **[container_name]** **[image_name]**
+
+- Visualizar estadistica de contenedor
+
+  > docker stats **[id or name]**
+
+- Inspeccionar contenedor
+
+  > docker inspet **[id or name]**
+
+- Mostrar log de contenedor
+
+  > docker logs **[id or name]**
+
+- Definir memoria maxima de uso del contenedor
+
+  > docker run -d -m "500mb" **[image_name]**
+
+- Copiar archivos de host al contenedor y viseversa
+
+  > docker cp file.txt **[id or name]:ruta**
+
+- Convertir un contenedor a una imagen (No es buena practica)
+
+  > docker commit **[id or name]** **[name_image_result]**
+
+- Detener contenedor automaticamente
+
+  > docker run --rm -it **[image_name]** bash
