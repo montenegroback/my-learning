@@ -220,3 +220,53 @@ Son la combinacion de volumenes de host y anonymus. Permiten crear volumenes en 
 - Eliminar Volume
 
   > docker volume rm **[name]**
+
+---
+
+## Redes
+
+La red por default de los contenedores es la Bridge
+
+### Tipos de redes
+
+- **Bridge:** red por default de Docker
+- **Host:** red de maquina local
+- **None:** sin redes- Especifica que el contenedor no tiene red asignada
+- **Overlay**
+
+### Conectar contenedores
+
+### Algunos comandos
+
+- Crear un red
+
+  > docker network create **[name]** \
+  > docker network create -d bridge --subnet --gateway **[name]**
+
+- Inspecionar red
+
+  > docker network inspect **[name]**
+
+- Listar redes
+
+  > docker network ls
+
+- Agregar un contenedor a una red distinta default
+
+  > docker run --network **[name]** -d **[image_name]**
+
+- Conectar y desconectar contenedores en distintas redes
+
+  > docker network connect **[name]** **[container_name]**
+
+  > docker network disconnect **[name]** **[container_name]**
+
+- Eliminar redes
+
+  > docker network rm **[name]**
+
+- Conectar un contenedor a una IP especifica
+
+  > docker run --network **[name]** --ip **0.0.0.0** --name **[container_name]** **[image_name]**
+
+  IMPORTANTE: Para poder definir una ip se debe crear un red anteriormente y tener al menos una **subnet** y **gateway** para que pueda funcionar.
