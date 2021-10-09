@@ -129,6 +129,10 @@ Son instancias de ejecución de una imagen.
 
   > docker exec -u root -it **[id or name]** bash | sh
 
+- Ejecutar comando sin entrar al contenedor
+
+  > docker exec **[id or name]** bash -c "cat /var"
+
 - Eliminar contenedores
 
   ```
@@ -175,3 +179,44 @@ Son instancias de ejecución de una imagen.
 - Detener contenedor automaticamente
 
   > docker run --rm -it **[image_name]** bash
+
+---
+
+## Volumes
+
+Nos permiten alamcenar la data de nuestros contenedores al host o nuestra maquina. Es decir la persitencia de los datos.
+
+Existen tres tipos de volumenes
+
+1. **Host:**
+
+La data se persiste en la maquina ejemplo
+
+> docker run -d --name db -p 3306:3306 **-v /opt/my-mysql/:/var/lib/mysql** mysql
+
+2. Anonymus
+
+Docker se encarga de definir el nombre del folder y la ubicacion. (Esta opción no es recomendable)
+
+> docker run -d --name db -p 3306:3306 **-v /var/lib/mysql** mysql
+
+3. Named Volumes
+
+Son la combinacion de volumenes de host y anonymus. Permiten crear volumenes en una ruta especifica gestionado por docker.
+
+> docker volume create **[name]** > \
+> docker run -d --name db -p 3306:3306 **-v [name]:/var/lib/mysql** mysql
+
+### Algunos Comandos
+
+- Crear un volume
+
+  > docker volume create **[name]**
+
+- Eliminar volumenes dangling
+
+  > docker volume ls -f dangling=true -q | xargs docker volume rm
+
+- Eliminar Volume
+
+  > docker volume rm **[name]**
