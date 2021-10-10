@@ -234,8 +234,6 @@ La red por default de los contenedores es la Bridge
 - **None:** sin redes- Especifica que el contenedor no tiene red asignada
 - **Overlay**
 
-### Conectar contenedores
-
 ### Algunos comandos
 
 - Crear un red
@@ -270,3 +268,30 @@ La red por default de los contenedores es la Bridge
   > docker run --network **[name]** --ip **0.0.0.0** --name **[container_name]** **[image_name]**
 
   IMPORTANTE: Para poder definir una ip se debe crear un red anteriormente y tener al menos una **subnet** y **gateway** para que pueda funcionar.
+
+---
+
+## Docker Compose
+
+Permite crear multicontenedores a partir de un docker-compose.yml
+
+La estructura es:
+
+```
+version:  #(requeridas)
+services:  #(requeridas)
+volumes:  #(opcional)
+networks:  #(opcional)
+```
+
+### Politica de reinicio de contenedores
+
+Existen 4 politicas que depende de cada uno de los casos.
+
+### Renombrar o Personalizar el nombre del prefijo de compose
+
+> docker-compose -p **[name]** up -d
+
+### Usar archivo distinto al docker-compose.yml
+
+> docker-compose -f **[file_name]** up -d
