@@ -14,5 +14,3 @@ jobs:
         uses: actions/checkout@v4
       - name: Variables
         run: echo "USERNAME=${{ github.actor }}" > $GITHUB_ENV
-      - name: Run script
-        run: node GithubActions/hola-mundo.js
